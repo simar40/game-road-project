@@ -1,0 +1,868 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("/Projects/Game Road/images/tabs-bg.jpg");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#container {
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+}
+
+/* Header start */
+
+#header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#header .row {
+    justify-content: space-between;
+}
+
+#logo h1 {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+#logo h1 a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 20px;
+}
+
+#right-navi ul {
+    list-style: none;
+    display: flex;
+}
+
+input[value="open-navi"] {
+    position: absolute;
+    right: 20px;
+    z-index: 300;
+    top: 19px;
+    width: 23px;
+    height: 25px;
+    display: none;
+    cursor: pointer;
+}
+
+.menu-open {
+    z-index: 200;
+    position: absolute;
+    right: 20px;
+    top: 24px;
+    display: none;
+}
+
+span.line {
+    width: 30px;
+    height: 3px;
+    margin-bottom: 6px;
+    display: block;
+    background-color: white;
+    transition: 1s;
+}
+
+@media (max-width:768px) {
+    input[value="open-navi"] {
+        display: block;
+        opacity: 0;
+    }
+    .menu-open {
+        display: block;
+    }
+    #right-navi ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 52px;
+        left: 0px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding-bottom: 10px;
+        transform: translate(-150%,0%);
+        transition: 1s;
+    }
+
+    #right-navi input[value="open-navi"]:checked ~ ul {
+        transform: translate(0%,0%);
+    }
+
+    #right-navi input[value="open-navi"]:checked ~ .menu-open .line:first-child {
+        transform: rotate(45deg);
+    }
+
+    #right-navi input[value="open-navi"]:checked ~ .menu-open .line:last-child {
+        transform: rotate(-45deg);
+        margin-top: -18px;
+    }
+
+    #right-navi input[value="open-navi"]:checked ~ .menu-open .line:nth-child(2) {
+        opacity: 0;
+    }
+}
+
+#right-navi ul li {
+    margin: 10px 18px;
+}
+
+#right-navi ul li a {
+    text-decoration: none;
+    color: #CCC;
+    position: relative;
+}
+
+#right-navi ul li a:hover {
+    color: white;
+}
+
+#right-navi ul li a::after {
+    content: "";
+    border: 1px solid white;
+    position: absolute;
+    left: 35%;
+    bottom: -10px;
+    width: 25%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#right-navi ul li a:hover::after {
+    width: 90%;
+    left: 0%;
+    opacity: 1;
+}
+
+/* End of header */
+
+/* banner start */
+#banner {
+    background-size: 100% 100%;
+    height: 660px;
+    animation: banner 20s infinite linear;
+}
+
+@keyframes banner {
+    0% {
+        background-image: url("/Projects/Game Road/images/slide-1.jpg");
+    }
+    20% {
+        background-image: url("/Projects/Game Road/images/slide-2.jpg");
+    }
+    40% {
+        background-image: url("/Projects/Game Road/images/slide-3.jpg");
+    }
+    60% {
+        background-image: url("/Projects/Game Road/images/slide-4.jpg");
+    }
+    80% {
+        background-image: url("/Projects/Game Road/images/slide-5.jpg");
+    }
+    100% {
+        background-image: url("/Projects/Game Road/images/slide-1.jpg");
+    }
+}
+
+/* Banner end */
+
+/* main content start */
+
+/* section-1 start */
+#about {
+    padding: 100px 0px;
+}
+
+#about .row {
+    justify-content: center;
+}
+
+#about .column {
+    width: 40%;
+    margin-right: 20px;
+}
+
+#about .description h2 {
+    font-size: 30px;
+    color: white;
+} 
+
+#about .description p {
+    color: #777;
+    line-height: 30px;
+}
+
+#about img {
+    width: 100%;   
+}
+
+@media (max-width:768px) {
+
+    #about .row {
+        display: block;
+    }
+
+    #about .column {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+}
+/* section-1 end */
+
+/* section-2 start */
+
+#platforms {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#platforms .column {
+    width: 25%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+#platforms .column img {
+    width: 100%;
+    height: inherit;
+}
+
+#platforms .icon {
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    opacity: 0;
+    width: 30%;
+    padding: 0px;
+    margin: 10px;
+    transition: 1s;
+    z-index: 1;
+}
+
+#platforms .icon h3 {
+    color: white;
+    text-align: center;
+}
+
+#platforms .column:hover .icon{
+    left: 30%;
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+
+#platforms .column::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transition: 1s;
+}
+
+#platforms .column:hover::after {
+    opacity: 1;
+    transform: rotateZ(360deg);
+}
+
+@media (max-width:768px) {
+    #platforms .row{
+        flex-wrap: wrap;
+    }
+
+    #platforms .column {
+        width: 50%;
+    }
+}
+/* section-2 end */
+
+/* section-3 start */
+#collections {
+    overflow: hidden;
+    position: relative;
+    height: 450px;
+}
+
+#collections h2 {
+    text-align: center;
+    font-size: 30px;
+    padding: 10px 0px;
+    color: white;
+}
+
+#collections .slider {
+    position: absolute;
+    overflow-x: hidden;
+    left: 0px;
+    width: 200%;
+    display: flex;
+    animation: slider 20s infinite linear;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#collections .slide {
+    width: 10%;
+    text-align: center;
+    border: 1px solid white;
+}
+
+#collections .slide h3,p {
+    color: #fff;
+}
+
+#collections .slide a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#collections .slide img {
+    width: 100%;
+}
+
+@keyframes slider {
+    0% {
+        left: 0%;
+    }
+    15% {
+        left: 0%;
+    }
+    20% {
+        left: -20%;
+    }
+    35% {
+        left: -20%;
+    }
+    40% {
+        left: -40%;
+    }
+    55% {
+        left: -40%;
+    }
+    60% {
+        left: -60%;
+    }
+    75% {
+        left: -60%;
+    }
+    80% {
+        left: -80%;
+    }
+    95% {
+        left: -80%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+@media (max-width:768px) {
+    #collections .slider{
+        width: 333%;
+    }
+
+    #collections .slide {
+        width: 33.33%;
+    }
+    @keyframes slider {
+        0% {
+            left: 0%;
+        }
+        15% {
+            left: 0%;
+        }
+        20% {
+            left: -33.33%;
+        }
+        35% {
+            left: -33.33%;
+        }
+        40% {
+            left: -66.66%;
+        }
+        55% {
+            left: -66.66%;
+        }
+        60% {
+            left: -99.99%;
+        }
+        75% {
+            left: -99.99%;
+        }
+        80% {
+            left: -133%;
+        }
+        95% {
+            left: -133%;
+        }
+        100% {
+            left: -166%;
+        }
+    }
+    
+}
+/* section-3 end */
+
+/* section-4 start */
+
+#blog {
+    background-color: #262626;
+}
+
+#blog h2{
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 24px;
+}
+
+#blog .row {
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+#blog .column {
+    width: 22%;
+}
+
+#blog a img {
+    width: 100%;
+    border: 8px solid transparent;
+    margin-bottom: 12px;
+}
+
+#blog a img:hover {
+    border: 8px solid white;
+}
+
+#blog span {
+    color: white;
+    font-weight: bold;
+}
+
+#blog h3 a {
+    color: #2cc185;;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#blog p {
+    color: #535353;
+}
+
+#blog .btn {
+    background-color: transparent;
+    padding: 10px 30px;
+    outline: none;
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 12px;;
+    text-transform: uppercase;
+    color: white;
+}
+
+#blog .btn:hover {
+    background-color: black;
+    border: 1px solid transparent;
+}
+
+#blog .btn:hover .fas {
+    color: #2cc185;
+}
+
+@media (max-width:768px) {
+    #blog .row{
+        flex-wrap: wrap;
+    }
+    #blog .column {
+        width: 45%;
+        margin: 10px;
+    }
+}
+/* section-4 end */
+
+/* section-5 */
+
+#portfolio {
+    height: 680px;
+}
+
+#portfolio h2 {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#portfolio .row {
+    flex-wrap: wrap;
+}
+
+#portfolio .row div {
+    width: 25%;
+    overflow: hidden;
+    height: 200px;
+}
+
+#portfolio img {
+    width: 100%;
+    height: inherit;
+}
+
+
+@media (max-width:768px) {
+    #portfolio .row div{
+        width: 33.33%;
+    }
+    #portfolio {
+        height: 880px;
+    }
+}
+/* end of section-5 */
+
+/* section-6 */
+
+#section-6 {
+    background-image: url("/Projects/Game Road/images/stats.jpg");
+    background-attachment: fixed;
+    height: 500px;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+#section-6 .inner-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#section-6 .stats ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+#section-6 .stats ul li {
+    margin: 150px 40px;
+    text-align: center;
+}
+
+#section-6 ul li h4 {
+    color: white;
+    font-size: 30px;
+    font-style: bold;
+}
+
+#section-6 ul li span {
+    color: white;
+    font-style: bold;
+}
+
+@media (max-width:768px) {
+
+    #section-6 {
+        height: 1100px;
+        overflow: hidden;
+        /* text-align: center; */
+    }
+    #section-6 .stats ul {
+        display: block;
+    }
+
+    #section-6 .stats ul li{
+        margin: 0 auto;
+    }
+}
+/* section-6 end */
+
+/* section-7 */
+#section-7 {
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+}
+
+#section-7 .slider{
+    position: absolute;
+    display: flex;
+    height: inherit;
+    width: 200%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    animation: slider-2 20s infinite linear;
+}
+
+#section-7 .slide {
+    width: 10%;
+    height: inherit;
+    border-right: 1px solid white;
+}
+
+#section-7 .slider img {
+    width: 100%;
+    height: inherit;
+}
+
+@keyframes slider-2 {
+    0% {
+        left: 0%;
+    }
+    15% {
+        left: 0%;
+    }
+    20% {
+        left: -20%;
+    }
+    35% {
+        left: -20%;
+    }
+    40% {
+        left: -40%;
+    }
+    55% {
+        left: -40%;
+    }
+    60% {
+        left: -60%;
+    }
+    75% {
+        left: -60%;
+    }
+    80% {
+        left: -80%;
+    }
+    95% {
+        left: -80%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+/* section-7 end */
+
+
+/* section-8 */
+
+#section-8 {
+    background-color: white;
+}
+
+#section-8 .row {
+    justify-content: space-around;
+}
+
+#section-8 .lable {
+    padding: 50px;
+    font-size: 25px;
+}
+
+#section-8 .email-form {
+    padding: 40px;
+}
+
+#section-8 input[type="email"] {
+    width: 350px;
+    height: 50px;
+    font-size: 18px;
+    background-color: black; 
+    border: none;   
+    padding-left: 10px;
+}
+
+#section-8 input[type="submit"] {
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #2cc185;
+    border: none;
+}
+
+#section-8 input[type="submit"]:hover {
+    background-color: #178056;
+}
+
+@media (max-width:768px) {
+    #section-8 .row {
+        display: block;
+        text-align: center;
+    }
+    
+}
+/* section-8 end */
+
+/* section-9 */
+
+#login {
+    height: 450px;
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+#login h3 {
+    color: white;
+    font-size: 40px;
+}
+
+#login input[type="text"], input[type="email"] {
+    width: 45%;
+    height: 45px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    border: 1px solid #0199e6;
+    border-left: 6px solid #0199e6;
+    padding-left: 10px;
+    background-color: transparent;
+}
+
+#login textarea {
+    width: 45%;
+    height: 100px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    border: 1px solid #0199e6;
+    border-left: 6px solid #0199e6;
+    padding-left: 10px;
+    background-color: transparent;
+}
+
+#login input[type="submit"] {
+    width: 130px;
+    height: 35px;
+    background-color: #fff;
+    color: #000;
+    border: transparent;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#login input[type="submit"]:hover {
+    color: #fff;
+    background-color: #000;
+    border: 4px solid #0199E6;
+}
+/* section-9 end */
+
+/* main content end */
+
+/* footer start */
+
+/* section-10 */
+
+#contact {
+    background-color: #262626;
+    padding-bottom: 50px;
+}
+
+#contact .row {
+    justify-content: space-around;
+    margin: 100px;
+}
+
+#contact .column {
+    width: 20%;
+}
+
+#contact h4 {
+    color: white;
+    margin-left: 40px;
+}
+
+#contact .column ul {
+    list-style: none;
+}
+
+#contact .column ul li {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+#contact ul li a {
+    text-decoration: none;
+    color: #49a44d;
+}
+
+#contact ul li a:hover {
+    color: #fff;
+}
+
+@media (max-width:768px) {
+    #contact .row {
+        display: block;
+    }
+    #contact .column {
+        width: 50%;
+        text-align: center;
+        margin: 10px auto;
+    }
+}
+/* section-10 end */
+
+
+/* section-11 */
+
+#section-11 {
+    height: 60px;
+    background-color: #000;
+}
+
+#section-11 .row {
+    justify-content: space-around;
+}
+
+#section-11 .col-1 {
+    padding-top: 5px;
+    color: #CCC;
+}
+
+#section-11 .col-2 {
+    padding-top: 17px;
+}
+
+#section-11 .col-2 a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 32px;
+}
+
+#section-11 .col-2 .fab {
+    text-shadow: 0px 0px 5px #fff;
+    margin-left: 8px;
+}
+/* section-11 end */
+
+/* section-12 */
+
+#section-12 {
+    position: relative;
+}
+
+#section-12 a{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+/* section-12 end */
+
+/* footer end */
